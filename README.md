@@ -1,0 +1,1 @@
+A simple snake variant written for practice.
