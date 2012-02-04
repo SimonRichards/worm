@@ -1,9 +1,11 @@
 package nz.co.simon;
 
 import android.app.Activity;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 
 class WormActivity extends Activity {
+
     WormView view;
 
     @Override
@@ -11,13 +13,9 @@ class WormActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.main);
-
-        view = new WormView(this, null);
-        if (savedInstanceState == null) {
-            new Thread(view).start();
-        } else {
-            new Thread(view).start();
-        }
+        Gravity gravity = new Gravity((SensorManager) getSystemService(SENSOR_SERVICE));
+        view = new WormView(this, null, gravity);
+        new Thread(view).start();
     }
 
     @Override
