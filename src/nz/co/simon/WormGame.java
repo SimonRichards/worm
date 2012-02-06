@@ -36,12 +36,13 @@ class WormGame {
     }
 
     void draw(Surface surface) {
-        snake.draw(surface);
-        currentFood.draw(surface);
         try {
-            Canvas c = surface.lockCanvas(screen);
-            surface.unlockCanvasAndPost(c);
+            Canvas canvas = surface.lockCanvas(screen);
+            snake.draw(canvas);
+            currentFood.draw(canvas);
+            surface.unlockCanvasAndPost(canvas);
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

@@ -15,17 +15,8 @@ class Food {
         paint = new Paint();
     }
 
-    void draw(Surface surface) {
-        Canvas c;
-        try {
-            c = surface.lockCanvas(null);
-            c.drawCircle(x, y, RADIUS, paint);
-            surface.unlockCanvas(c);
-        } catch (IllegalArgumentException e) {
-            System.exit(-1);
-        } catch (Surface.OutOfResourcesException e) {
-            System.exit(-2);
-        }
+    void draw(Canvas canvas) throws IllegalArgumentException, Surface.OutOfResourcesException {
+        canvas.drawCircle(x, y, RADIUS, paint);
     }
 
     void place(PointF point) {
